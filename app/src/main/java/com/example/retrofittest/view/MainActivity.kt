@@ -26,13 +26,15 @@ class MainActivity : AppCompatActivity() {
             GetPostUseCase(retrofitRepository),
             CreatePostUseCase(retrofitRepository),
             UpdatePostUseCase(retrofitRepository),
+            PatchPostUseCase(retrofitRepository),
             DeletePostUseCase(retrofitRepository)
         )
 
         userViewModel.getPosts()
-//        userViewModel.getPost("1")
-//        userViewModel.createPost(PostData(1, "title", "body", 1))
-//        userViewModel.updatePost("1", PostData(1, "title", "body", 1))
-//        userViewModel.deletePost("1")
+        userViewModel.getPost("1")
+        userViewModel.createPost(PostData(1, "title", "body", 1))
+        userViewModel.updatePost("1", PostData(1, "title", "body", 1))
+        userViewModel.patchPost("1", PostData(1, "title", "body", 1))
+        userViewModel.deletePost("1")
     }
 }

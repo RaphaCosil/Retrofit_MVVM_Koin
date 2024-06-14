@@ -11,6 +11,7 @@ class PostsViewModel(
     private val getPostUseCase: GetPostUseCase,
     private val createPostUseCase: CreatePostUseCase,
     private val putPostUseCase: UpdatePostUseCase,
+    private val patchPostUseCase: PatchPostUseCase,
     private val deletePostUseCase: DeletePostUseCase
 ) : ViewModel() {
 
@@ -58,6 +59,18 @@ class PostsViewModel(
             try {
                 val result = putPostUseCase.invoke(id, post)
                 Log.d("PostsViewModel", "updatePost result: ${result.body() }")
+            } catch (e: Exception) {
+                Log.e("PostsViewModel", "Error fetching todos | MESSAGE ${e.message} | CAUSE ${e.cause}")
+                // Handle the error
+            }
+        }
+    }
+
+    fun patchPost(id: String, post: PostData) {
+        viewModelScope.launch {
+            try {
+                val result = patchPostUseCase.invoke(id, post)
+                Log.d("PostsViewModel", "patchPost result: ${result.body() }")
             } catch (e: Exception) {
                 Log.e("PostsViewModel", "Error fetching todos | MESSAGE ${e.message} | CAUSE ${e.cause}")
                 // Handle the error

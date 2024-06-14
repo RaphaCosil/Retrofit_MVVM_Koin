@@ -22,6 +22,10 @@ class PostsRepositoryImpl(private val service: PostsService):PostsRepository {
         return service.updatePost(id, post)
     }
 
+    override suspend fun patchPost(id: String, post: PostData): Response<PostData> {
+        return service.patchPost(id, post)
+    }
+
     override suspend fun deletePost(id: String): Response<PostData> {
         return service.deletePost(id)
     }

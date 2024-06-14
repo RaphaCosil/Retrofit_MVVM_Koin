@@ -8,5 +8,7 @@ interface PostsRepository {
     suspend fun getPost(id: String): Response<PostData>
     suspend fun createPost(post: PostData): Response<PostData>
     suspend fun updatePost(id: String, post: PostData): Response<PostData>
+    suspend fun patchPost(id: String, post: PostData): Response<PostData>
     suspend fun deletePost(id: String): Response<PostData>
+
 }

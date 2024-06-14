@@ -29,9 +29,9 @@ val appModule = module {
     single { GetPostUseCase(get()) }
     single { CreatePostUseCase(get()) }
     single { UpdatePostUseCase(get()) }
+    single { PatchPostUseCase(get()) }
     single { DeletePostUseCase(get()) }
 
-
     // Provide ViewModel
-    viewModel { PostsViewModel(get(), get(), get(), get(), get()) }
+    viewModel { PostsViewModel(get(), get(), get(), get(), get(), get()) }
 }
