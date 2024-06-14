@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "RetrofitTest"
+rootProject.name = "Retrofit_MVVM"
 include(":app")
  
