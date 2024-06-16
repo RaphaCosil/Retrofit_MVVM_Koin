@@ -10,6 +10,7 @@ I'm using the
 I'm feeding my recycle view with the GetPosts() method that pulls 100 Posts from the API. I'm also using a modal to collect information and call the CreatePost() method, which simulates a Post method.
 
 
+
 ## Retrofit com MVVM e Koin
 Esse é um estudo sobre a chamada de APIs usando [Retrofit](https://square.github.io/retrofit/). A injeção de dependências é feita através do [Koin](https://insert-koin.io/). E o projeto está organizado seguindo o MVVM.
 
