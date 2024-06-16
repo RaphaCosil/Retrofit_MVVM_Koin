@@ -21,5 +21,5 @@ Estou usando o
 
 Estou alimentando meu recycle view com o método GetPosts() que puxa 100 Posts da API. Estou usando também um modal para recolher informações e chamar o método CreatePost(), que simula um método Post.
 
-<h3 align="left">Languages and Tools/Linguagem e Ferramentas:</h3>
+## Languages and Tools/Linguagem e Ferramentas:
 <p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://images.vexels.com/media/users/3/139556/isolated/preview/1718a076e29822051df8bcf8b5ce1124-android-logo.png" alt="android" width="40" height="40"/> </a> <a href="https://kotlinlang.org" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg" alt="kotlin" width="40" height="40"/> </a> </p>
