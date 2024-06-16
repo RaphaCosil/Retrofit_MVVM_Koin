@@ -1,11 +1,11 @@
-package com.example.retrofittest.domain.repository
+package com.example.retrofittest.data.repository
 
 import com.example.retrofittest.data.PostsService
-import com.example.retrofittest.model.PostData
+import com.example.retrofittest.data.model.PostData
 import retrofit2.Response
 
 
-class PostsRepositoryImpl(private val service: PostsService):PostsRepository {
+class PostsRepositoryImpl(private val service: PostsService): PostsRepository {
     override suspend fun getTodos(): Response<List<PostData>> {
         return service.getPosts()
     }

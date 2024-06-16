@@ -1,4 +1,4 @@
-package com.example.retrofittest.model
+package com.example.retrofittest.data.model
 
 data class PostData(val id: Int,
                     val title: String,

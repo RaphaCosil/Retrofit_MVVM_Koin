@@ -5,9 +5,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.example.retrofittest.data.model.PostData
 import com.example.retrofittest.databinding.ItemRecycleBinding
-import com.example.retrofittest.model.PostData
-
 class RecycleAdapter : RecyclerView.Adapter<RecycleAdapter.PostViewHolder>() {
     inner class PostViewHolder(val binding: ItemRecycleBinding) : RecyclerView.ViewHolder(binding.root)
 

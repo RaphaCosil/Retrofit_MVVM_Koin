@@ -2,8 +2,13 @@ package com.example.retrofittest.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.example.retrofittest.domain.usecase.*
-import com.example.retrofittest.model.PostData
+import com.example.retrofittest.data.model.PostData
+import com.example.retrofittest.viewmodel.usecase.CreatePostUseCase
+import com.example.retrofittest.viewmodel.usecase.DeletePostUseCase
+import com.example.retrofittest.viewmodel.usecase.GetPostUseCase
+import com.example.retrofittest.viewmodel.usecase.GetPostsUseCase
+import com.example.retrofittest.viewmodel.usecase.PatchPostUseCase
+import com.example.retrofittest.viewmodel.usecase.UpdatePostUseCase
 import kotlinx.coroutines.launch
 
 class PostsViewModel(

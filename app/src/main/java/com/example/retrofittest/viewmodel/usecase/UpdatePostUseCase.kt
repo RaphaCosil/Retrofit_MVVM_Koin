@@ -1,7 +1,7 @@
-package com.example.retrofittest.domain.usecase
+package com.example.retrofittest.viewmodel.usecase
 
-import com.example.retrofittest.domain.repository.PostsRepository
-import com.example.retrofittest.model.PostData
+import com.example.retrofittest.data.repository.PostsRepository
+import com.example.retrofittest.data.model.PostData
 import retrofit2.Response
 
 class UpdatePostUseCase(

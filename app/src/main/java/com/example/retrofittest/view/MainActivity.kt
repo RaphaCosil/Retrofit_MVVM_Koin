@@ -16,9 +16,10 @@ import com.example.retrofittest.R
 import com.example.retrofittest.RetrofitInstance
 import com.example.retrofittest.appModule
 import com.example.retrofittest.databinding.ActivityMainBinding
-import com.example.retrofittest.domain.repository.PostsRepositoryImpl
-import com.example.retrofittest.domain.usecase.*
-import com.example.retrofittest.model.PostData
+import com.example.retrofittest.data.repository.PostsRepositoryImpl
+import com.example.retrofittest.data.model.PostData
+import com.example.retrofittest.viewmodel.usecase.CreatePostUseCase
+import com.example.retrofittest.viewmodel.usecase.GetPostsUseCase
 import kotlinx.coroutines.launch
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
@@ -59,8 +60,6 @@ class MainActivity : AppCompatActivity() {
         binding.floatingActionButton.setOnClickListener {
             showPostDialog(this)
         }
-
-
     }
     private fun setupRecyclerView() = binding.recyclerView.apply {
         recycleAdapter = RecycleAdapter()
@@ -81,10 +80,16 @@ class MainActivity : AppCompatActivity() {
         val editTextBody = dialogView.findViewById<EditText>(R.id.editTextBody)
 
         buttonSubmit.setOnClickListener {
-            val title = editTextTitle.text.toString()
-            val body = editTextBody.text.toString()
-            submitPost(title, body)
-            dialog.dismiss()
+            if(editTextTitle.text.isEmpty() || editTextBody.text.isEmpty()) {
+                Toast.makeText(context, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            else {
+                val title = editTextTitle.text.toString()
+                val body = editTextBody.text.toString()
+                submitPost(title, body)
+                dialog.dismiss()
+            }
         }
 
         buttonCancel.setOnClickListener {

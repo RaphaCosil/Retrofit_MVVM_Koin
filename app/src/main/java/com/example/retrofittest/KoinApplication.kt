@@ -1,10 +1,15 @@
 package com.example.retrofittest
 
 import com.example.retrofittest.data.PostsService
-import com.example.retrofittest.domain.repository.PostsRepository
-import com.example.retrofittest.domain.usecase.*
-import com.example.retrofittest.domain.repository.PostsRepositoryImpl
+import com.example.retrofittest.data.repository.PostsRepository
+import com.example.retrofittest.data.repository.PostsRepositoryImpl
 import com.example.retrofittest.viewmodel.PostsViewModel
+import com.example.retrofittest.viewmodel.usecase.CreatePostUseCase
+import com.example.retrofittest.viewmodel.usecase.DeletePostUseCase
+import com.example.retrofittest.viewmodel.usecase.GetPostUseCase
+import com.example.retrofittest.viewmodel.usecase.GetPostsUseCase
+import com.example.retrofittest.viewmodel.usecase.PatchPostUseCase
+import com.example.retrofittest.viewmodel.usecase.UpdatePostUseCase
 
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

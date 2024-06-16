@@ -1,6 +1,6 @@
-package com.example.retrofittest.domain.repository
+package com.example.retrofittest.data.repository
 
-import com.example.retrofittest.model.PostData
+import com.example.retrofittest.data.model.PostData
 import retrofit2.Response
 
 interface PostsRepository {

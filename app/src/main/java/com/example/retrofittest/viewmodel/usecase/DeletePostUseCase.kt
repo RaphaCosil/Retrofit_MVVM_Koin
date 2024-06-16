@@ -1,6 +1,6 @@
-package com.example.retrofittest.domain.usecase
+package com.example.retrofittest.viewmodel.usecase
 
-import com.example.retrofittest.domain.repository.PostsRepository
+import com.example.retrofittest.data.repository.PostsRepository
 
 class DeletePostUseCase(
     private val repository: PostsRepository

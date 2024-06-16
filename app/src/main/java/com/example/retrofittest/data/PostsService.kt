@@ -1,6 +1,6 @@
 package com.example.retrofittest.data
 
-import com.example.retrofittest.model.PostData
+import com.example.retrofittest.data.model.PostData
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
