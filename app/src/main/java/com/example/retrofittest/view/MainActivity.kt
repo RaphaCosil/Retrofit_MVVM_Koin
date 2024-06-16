@@ -19,7 +19,7 @@ import com.example.retrofittest.databinding.ActivityMainBinding
 import com.example.retrofittest.data.repository.PostsRepositoryImpl
 import com.example.retrofittest.data.model.PostData
 import com.example.retrofittest.viewmodel.usecase.CreatePostUseCase
-import com.example.retrofittest.viewmodel.usecase.GetPostsUseCase
+import com.example.retrofittest.viewmodel.usecase.GetAllPostsUseCase
 import kotlinx.coroutines.launch
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.GlobalContext.startKoin
@@ -43,18 +43,21 @@ class MainActivity : AppCompatActivity() {
         setupRecyclerView()
         lifecycleScope.launchWhenCreated {
             val response = try {
-                GetPostsUseCase(retrofitRepository).invoke()
+                GetAllPostsUseCase(retrofitRepository).invoke()
             } catch(e: IOException) {
                 Log.e(TAG, "IOException, you might not have internet connection")
+                Toast.makeText(this@MainActivity, "You might not have internet connection", Toast.LENGTH_SHORT).show()
                 return@launchWhenCreated
             } catch(e: HttpException) {
                 Log.e(TAG, "HttpException, unexpected response")
+                Toast.makeText(this@MainActivity, "Unexpected response", Toast.LENGTH_SHORT).show()
                 return@launchWhenCreated
             }
             if(response.isSuccessful && response.body() != null) {
                 recycleAdapter.postsList = response.body()!!
             } else {
                 Log.e(TAG, "Response not successful")
+                Toast.makeText(this@MainActivity, "Response not successful", Toast.LENGTH_SHORT).show()
             }
         }
         binding.floatingActionButton.setOnClickListener {
@@ -104,15 +107,19 @@ class MainActivity : AppCompatActivity() {
                 CreatePostUseCase(retrofitRepository).invoke(PostData(id = 101,title = title, body = body, userId = 1))
             } catch(e: IOException) {
                 Log.e(TAG, "IOException, you might not have internet connection")
+                Toast.makeText(this@MainActivity, "No internet connection", Toast.LENGTH_SHORT).show()
                 return@launch
             } catch(e: HttpException) {
                 Log.e(TAG, "HttpException, unexpected response")
+                Toast.makeText(this@MainActivity, "Unexpected response", Toast.LENGTH_SHORT).show()
                 return@launch
             }
             if(response.isSuccessful) {
+                Log.e(TAG, "Post created successfully")
                 Toast.makeText(this@MainActivity, "Post created successfully", Toast.LENGTH_SHORT).show()
             } else {
                 Log.e(TAG, "Response not successful")
+                Toast.makeText(this@MainActivity, "Response not successful", Toast.LENGTH_SHORT).show()
             }
         }
     }

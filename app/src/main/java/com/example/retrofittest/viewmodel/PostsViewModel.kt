@@ -6,13 +6,13 @@ import com.example.retrofittest.data.model.PostData
 import com.example.retrofittest.viewmodel.usecase.CreatePostUseCase
 import com.example.retrofittest.viewmodel.usecase.DeletePostUseCase
 import com.example.retrofittest.viewmodel.usecase.GetPostUseCase
-import com.example.retrofittest.viewmodel.usecase.GetPostsUseCase
+import com.example.retrofittest.viewmodel.usecase.GetAllPostsUseCase
 import com.example.retrofittest.viewmodel.usecase.PatchPostUseCase
 import com.example.retrofittest.viewmodel.usecase.UpdatePostUseCase
 import kotlinx.coroutines.launch
 
 class PostsViewModel(
-    private val getPostsUseCase: GetPostsUseCase,
+    private val getPostsUseCase: GetAllPostsUseCase,
     private val getPostUseCase: GetPostUseCase,
     private val createPostUseCase: CreatePostUseCase,
     private val putPostUseCase: UpdatePostUseCase,

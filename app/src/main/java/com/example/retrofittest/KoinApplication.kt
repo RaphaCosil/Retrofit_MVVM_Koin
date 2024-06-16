@@ -7,7 +7,7 @@ import com.example.retrofittest.viewmodel.PostsViewModel
 import com.example.retrofittest.viewmodel.usecase.CreatePostUseCase
 import com.example.retrofittest.viewmodel.usecase.DeletePostUseCase
 import com.example.retrofittest.viewmodel.usecase.GetPostUseCase
-import com.example.retrofittest.viewmodel.usecase.GetPostsUseCase
+import com.example.retrofittest.viewmodel.usecase.GetAllPostsUseCase
 import com.example.retrofittest.viewmodel.usecase.PatchPostUseCase
 import com.example.retrofittest.viewmodel.usecase.UpdatePostUseCase
 
@@ -30,7 +30,7 @@ val appModule = module {
     single<PostsRepository> { PostsRepositoryImpl(get()) }
 
     // Provide Use Case
-    single { GetPostsUseCase(get()) }
+    single { GetAllPostsUseCase(get()) }
     single { GetPostUseCase(get()) }
     single { CreatePostUseCase(get()) }
     single { UpdatePostUseCase(get()) }

@@ -12,7 +12,7 @@ import retrofit2.http.Path
 
 interface PostsService {
     @GET("posts/")
-    suspend fun getPosts(): Response<List<PostData>>
+    suspend fun getAllPosts(): Response<List<PostData>>
     @GET("posts/{id}/")
     suspend fun getPost(@Path("id") id: String): Response<PostData>
     @POST("posts/")

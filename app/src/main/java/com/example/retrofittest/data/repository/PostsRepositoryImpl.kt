@@ -4,10 +4,9 @@ import com.example.retrofittest.data.PostsService
 import com.example.retrofittest.data.model.PostData
 import retrofit2.Response
 
-
 class PostsRepositoryImpl(private val service: PostsService): PostsRepository {
-    override suspend fun getTodos(): Response<List<PostData>> {
-        return service.getPosts()
+    override suspend fun getAllPosts(): Response<List<PostData>> {
+        return service.getAllPosts()
     }
 
     override suspend fun getPost(id: String): Response<PostData> {
