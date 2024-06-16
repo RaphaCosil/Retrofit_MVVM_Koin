@@ -1,0 +1,22 @@
+<resources>
+    <!-- Base application theme -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/pink</item>
+        <item name="colorPrimaryDark">@color/pink</item>
+        <item name="colorAccent">@color/pink</item>
+    </style>
+
+    <!-- Custom Dialog Style -->
+    <style name="CustomDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/border</item>
+        <item name="android:padding">16dp</item>
+    </style>
+
+    <!-- Custom Button Style -->
+    <style name="CustomDialogButton" parent="Widget.AppCompat.Button">
+        <item name="android:background">?attr/selectableItemBackground</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_margin">8dp</item>
+    </style>
+</resources>

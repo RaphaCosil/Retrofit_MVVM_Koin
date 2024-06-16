@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">posts retrofit</string>
+    <string name="posts_list">posts list</string>
+    <string name="title">Title</string>
+    <string name="body">Body</string>
+    <string name="submit">submit</string>
+    <string name="cancel">cancel</string>
 </resources>
