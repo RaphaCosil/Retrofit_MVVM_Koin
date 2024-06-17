@@ -1,4 +1,4 @@
-package com.example.retrofittest.data
+package com.example.retrofittest.data.api
 
 import com.example.retrofittest.data.model.PostData
 import retrofit2.Response
@@ -16,11 +16,11 @@ interface PostsService {
     @GET("posts/{id}/")
     suspend fun getPost(@Path("id") id: String): Response<PostData>
     @POST("posts/")
-    suspend fun createPost(@Body post: PostData): Response<PostData>
+    suspend fun createPost(@Body post: PostData)
     @PUT("posts/{id}/")
-    suspend fun updatePost(@Path("id") id: String, @Body post: PostData): Response<PostData>
+    suspend fun updatePost(@Path("id") id: String, @Body post: PostData)
     @PATCH("posts/{id}/")
-    suspend fun patchPost(@Path("id") id: String, @Body post: PostData): Response<PostData>
+    suspend fun patchPost(@Path("id") id: String, @Body post: PostData)
     @DELETE("posts/{id}/")
-    suspend fun deletePost(@Path("id") id: String): Response<PostData>
+    suspend fun deletePost(@Path("id") id: String)
 }

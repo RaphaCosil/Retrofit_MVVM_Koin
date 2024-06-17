@@ -8,6 +8,10 @@ class GetAllPostsUseCase(
     private val repository: PostsRepository
 ) {
     suspend operator fun invoke(): Response<List<PostData>> {
-        return repository.getAllPosts()
+        try {
+            return repository.getAllPosts()
+        } catch (e: Exception) {
+            throw e
+        }
     }
 }

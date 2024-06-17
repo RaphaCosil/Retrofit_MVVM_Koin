@@ -1,6 +1,6 @@
 package com.example.retrofittest
 
-import com.example.retrofittest.data.PostsService
+import com.example.retrofittest.data.api.PostsService
 import com.example.retrofittest.data.repository.PostsRepository
 import com.example.retrofittest.data.repository.PostsRepositoryImpl
 import com.example.retrofittest.viewmodel.PostsViewModel

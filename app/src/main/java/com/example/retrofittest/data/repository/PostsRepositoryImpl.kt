@@ -1,6 +1,6 @@
 package com.example.retrofittest.data.repository
 
-import com.example.retrofittest.data.PostsService
+import com.example.retrofittest.data.api.PostsService
 import com.example.retrofittest.data.model.PostData
 import retrofit2.Response
 
@@ -13,19 +13,19 @@ class PostsRepositoryImpl(private val service: PostsService): PostsRepository {
         return service.getPost(id)
     }
 
-    override suspend fun createPost(post: PostData): Response<PostData> {
-        return service.createPost(post)
+    override suspend fun createPost(post: PostData) {
+        service.createPost(post)
     }
 
-    override suspend fun updatePost(id: String, post: PostData): Response<PostData> {
-        return service.updatePost(id, post)
+    override suspend fun updatePost(id: String, post: PostData) {
+        service.updatePost(id, post)
     }
 
-    override suspend fun patchPost(id: String, post: PostData): Response<PostData> {
-        return service.patchPost(id, post)
+    override suspend fun patchPost(id: String, post: PostData) {
+        service.patchPost(id, post)
     }
 
-    override suspend fun deletePost(id: String): Response<PostData> {
-        return service.deletePost(id)
+    override suspend fun deletePost(id: String) {
+        service.deletePost(id)
     }
 }

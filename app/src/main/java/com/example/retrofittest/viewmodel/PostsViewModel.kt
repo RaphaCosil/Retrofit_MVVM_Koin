@@ -47,51 +47,51 @@ class PostsViewModel(
         }
     }
 
-    fun createPost(post: PostData) {
-        viewModelScope.launch {
-            try {
-                val result = createPostUseCase.invoke(post)
-                Log.d("PostsViewModel", "createPost result: ${result.body() }")
-            } catch (e: Exception) {
-                Log.e("PostsViewModel", "Error fetching todos | MESSAGE ${e.message} | CAUSE ${e.cause}")
-                // Handle the error
-            }
-        }
-    }
-
-    fun updatePost(id: String, post: PostData) {
-        viewModelScope.launch {
-            try {
-                val result = putPostUseCase.invoke(id, post)
-                Log.d("PostsViewModel", "updatePost result: ${result.body() }")
-            } catch (e: Exception) {
-                Log.e("PostsViewModel", "Error fetching todos | MESSAGE ${e.message} | CAUSE ${e.cause}")
-                // Handle the error
-            }
-        }
-    }
-
-    fun patchPost(id: String, post: PostData) {
-        viewModelScope.launch {
-            try {
-                val result = patchPostUseCase.invoke(id, post)
-                Log.d("PostsViewModel", "patchPost result: ${result.body() }")
-            } catch (e: Exception) {
-                Log.e("PostsViewModel", "Error fetching todos | MESSAGE ${e.message} | CAUSE ${e.cause}")
-                // Handle the error
-            }
-        }
-    }
-
-    fun deletePost(id: String) {
-        viewModelScope.launch {
-            try {
-                val result = deletePostUseCase.invoke(id)
-                Log.d("PostsViewModel", "deletePost result: ${result.body() }")
-            } catch (e: Exception) {
-                Log.e("PostsViewModel", "Error fetching todos | MESSAGE ${e.message} | CAUSE ${e.cause}")
-                // Handle the error
-            }
-        }
-    }
+//    fun createPost(post: PostData) {
+//        viewModelScope.launch {
+//            try {
+//                val result = createPostUseCase.invoke(post)
+//                Log.d("PostsViewModel", "createPost result: ${result.body() }")
+//            } catch (e: Exception) {
+//                Log.e("PostsViewModel", "Error fetching todos | MESSAGE ${e.message} | CAUSE ${e.cause}")
+//                // Handle the error
+//            }
+//        }
+//    }
+//
+//    fun updatePost(id: String, post: PostData) {
+//        viewModelScope.launch {
+//            try {
+//                val result = putPostUseCase.invoke(id, post)
+//                Log.d("PostsViewModel", "updatePost result: ${result.body() }")
+//            } catch (e: Exception) {
+//                Log.e("PostsViewModel", "Error fetching todos | MESSAGE ${e.message} | CAUSE ${e.cause}")
+//                // Handle the error
+//            }
+//        }
+//    }
+//
+//    fun patchPost(id: String, post: PostData) {
+//        viewModelScope.launch {
+//            try {
+//                val result = patchPostUseCase.invoke(id, post)
+//                Log.d("PostsViewModel", "patchPost result: ${result.body() }")
+//            } catch (e: Exception) {
+//                Log.e("PostsViewModel", "Error fetching todos | MESSAGE ${e.message} | CAUSE ${e.cause}")
+//                // Handle the error
+//            }
+//        }
+//    }
+//
+//    fun deletePost(id: String) {
+//        viewModelScope.launch {
+//            try {
+//                val result = deletePostUseCase.invoke(id)
+//                Log.d("PostsViewModel", "deletePost result: ${result.body() }")
+//            } catch (e: Exception) {
+//                Log.e("PostsViewModel", "Error fetching todos | MESSAGE ${e.message} | CAUSE ${e.cause}")
+//                // Handle the error
+//            }
+//        }
+//    }
 }

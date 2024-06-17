@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.retrofittest.R
@@ -42,20 +43,25 @@ class MainActivity : AppCompatActivity() {
 
         setupRecyclerView()
         lifecycleScope.launchWhenCreated {
+            binding.progressBar.isVisible = true
             val response = try {
                 GetAllPostsUseCase(retrofitRepository).invoke()
             } catch(e: IOException) {
+                binding.progressBar.isVisible = false
                 Log.e(TAG, "IOException, you might not have internet connection")
                 Toast.makeText(this@MainActivity, "You might not have internet connection", Toast.LENGTH_SHORT).show()
                 return@launchWhenCreated
             } catch(e: HttpException) {
+                binding.progressBar.isVisible = false
                 Log.e(TAG, "HttpException, unexpected response")
                 Toast.makeText(this@MainActivity, "Unexpected response", Toast.LENGTH_SHORT).show()
                 return@launchWhenCreated
             }
             if(response.isSuccessful && response.body() != null) {
                 recycleAdapter.postsList = response.body()!!
+                binding.progressBar.isVisible = false
             } else {
+                binding.progressBar.isVisible = false
                 Log.e(TAG, "Response not successful")
                 Toast.makeText(this@MainActivity, "Response not successful", Toast.LENGTH_SHORT).show()
             }
@@ -100,26 +106,30 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
     private fun submitPost(title: String, body: String) {
         lifecycleScope.launch {
-            val response = try {
+            binding.progressBar.isVisible = true
+            try {
                 CreatePostUseCase(retrofitRepository).invoke(PostData(id = 101,title = title, body = body, userId = 1))
+                binding.progressBar.isVisible = false
+                Log.e(TAG, "Post created successfully")
+                Toast.makeText(this@MainActivity, "Post created successfully", Toast.LENGTH_SHORT).show()
             } catch(e: IOException) {
+                binding.progressBar.isVisible = false
                 Log.e(TAG, "IOException, you might not have internet connection")
                 Toast.makeText(this@MainActivity, "No internet connection", Toast.LENGTH_SHORT).show()
                 return@launch
             } catch(e: HttpException) {
+                binding.progressBar.isVisible = false
                 Log.e(TAG, "HttpException, unexpected response")
                 Toast.makeText(this@MainActivity, "Unexpected response", Toast.LENGTH_SHORT).show()
                 return@launch
             }
-            if(response.isSuccessful) {
-                Log.e(TAG, "Post created successfully")
-                Toast.makeText(this@MainActivity, "Post created successfully", Toast.LENGTH_SHORT).show()
-            } else {
-                Log.e(TAG, "Response not successful")
-                Toast.makeText(this@MainActivity, "Response not successful", Toast.LENGTH_SHORT).show()
+            catch (e: Exception) {
+                binding.progressBar.isVisible = false
+                Log.e(TAG, "Exception, something went wrong")
+                Toast.makeText(this@MainActivity, "Something went wrong", Toast.LENGTH_SHORT).show()
+                return@launch
             }
         }
     }
