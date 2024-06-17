@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/pink"
-    tools:context=".view.SplashScreen">
+    tools:context=".app.MainActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.431"
-        app:srcCompat="@drawable/iconpostsplash" />
+        app:srcCompat="@drawable/iconpostsplash"
+        android:contentDescription="@string/logo_of_the_app_is_a_square_with_a_smile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,6 @@
-package com.example.retrofittest.viewmodel.usecase
+package com.example.retrofittest.domain.usecase
 
-import com.example.retrofittest.data.repository.PostsRepository
+import com.example.retrofittest.domain.repository.PostsRepository
 import com.example.retrofittest.data.model.PostData
 
 class PatchPostUseCase(

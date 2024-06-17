@@ -1,4 +1,4 @@
-package com.example.retrofittest.view
+package com.example.retrofittest.presentation.ui.view
 
 import android.graphics.Rect
 import android.view.View

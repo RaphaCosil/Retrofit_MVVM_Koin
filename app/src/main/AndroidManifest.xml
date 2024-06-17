@@ -15,10 +15,10 @@
         android:theme="@style/Theme.RetrofitTest"
         tools:targetApi="s">
         <activity
-            android:name=".view.MainActivity"
+            android:name=".presentation.ui.activity.HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".view.SplashScreen"
+            android:name=".app.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

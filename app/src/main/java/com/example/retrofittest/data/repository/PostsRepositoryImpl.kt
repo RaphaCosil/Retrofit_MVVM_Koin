@@ -1,7 +1,8 @@
 package com.example.retrofittest.data.repository
 
-import com.example.retrofittest.data.api.PostsService
+import com.example.retrofittest.data.datasource.PostsService
 import com.example.retrofittest.data.model.PostData
+import com.example.retrofittest.domain.repository.PostsRepository
 import retrofit2.Response
 
 class PostsRepositoryImpl(private val service: PostsService): PostsRepository {

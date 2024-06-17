@@ -1,15 +1,15 @@
 package com.example.retrofittest
 
-import com.example.retrofittest.data.api.PostsService
-import com.example.retrofittest.data.repository.PostsRepository
+import com.example.retrofittest.data.datasource.PostsService
 import com.example.retrofittest.data.repository.PostsRepositoryImpl
-import com.example.retrofittest.viewmodel.PostsViewModel
-import com.example.retrofittest.viewmodel.usecase.CreatePostUseCase
-import com.example.retrofittest.viewmodel.usecase.DeletePostUseCase
-import com.example.retrofittest.viewmodel.usecase.GetPostUseCase
-import com.example.retrofittest.viewmodel.usecase.GetAllPostsUseCase
-import com.example.retrofittest.viewmodel.usecase.PatchPostUseCase
-import com.example.retrofittest.viewmodel.usecase.UpdatePostUseCase
+import com.example.retrofittest.domain.repository.PostsRepository
+import com.example.retrofittest.presentation.viewmodel.PostsViewModel
+import com.example.retrofittest.domain.usecase.CreatePostUseCase
+import com.example.retrofittest.domain.usecase.DeletePostUseCase
+import com.example.retrofittest.domain.usecase.GetPostUseCase
+import com.example.retrofittest.domain.usecase.GetAllPostsUseCase
+import com.example.retrofittest.domain.usecase.PatchPostUseCase
+import com.example.retrofittest.domain.usecase.UpdatePostUseCase
 
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module

@@ -1,6 +1,6 @@
 package com.example.retrofittest
 
-import com.example.retrofittest.data.api.PostsService
+import com.example.retrofittest.data.datasource.PostsService
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 

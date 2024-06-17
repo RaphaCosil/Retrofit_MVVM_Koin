@@ -1,4 +1,4 @@
-package com.example.retrofittest.view
+package com.example.retrofittest.app
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,15 +6,16 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.example.retrofittest.R
+import com.example.retrofittest.presentation.ui.activity.HomeActivity
 
-class SplashScreen : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
         Handler(Looper.getMainLooper()).postDelayed({ openScreen() }, 2000)
     }
     private fun openScreen() {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, HomeActivity::class.java)
         startActivity(intent)
         finish()
     }

@@ -1,4 +1,4 @@
-package com.example.retrofittest.data.api
+package com.example.retrofittest.data.datasource
 
 import com.example.retrofittest.data.model.PostData
 import retrofit2.Response

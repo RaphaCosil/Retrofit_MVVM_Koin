@@ -1,4 +1,4 @@
-package com.example.retrofittest.data.repository
+package com.example.retrofittest.domain.repository
 
 import com.example.retrofittest.data.model.PostData
 import retrofit2.Response

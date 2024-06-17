@@ -1,7 +1,7 @@
-package com.example.retrofittest.viewmodel.usecase
+package com.example.retrofittest.domain.usecase
 
 import com.example.retrofittest.data.model.PostData
-import com.example.retrofittest.data.repository.PostsRepository
+import com.example.retrofittest.domain.repository.PostsRepository
 import retrofit2.Response
 
 class GetPostUseCase(private val repository: PostsRepository) {

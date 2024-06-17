@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/black"
-    tools:context=".view.MainActivity">
+    tools:context=".presentation.ui.activity.HomeActivity">
 
 
     <androidx.recyclerview.widget.RecyclerView
@@ -31,7 +31,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.951"
         app:srcCompat="@drawable/plus"
-        android:contentDescription="Loading GetAll posts" />
+        android:contentDescription="@string/loading_getall_posts" />
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
