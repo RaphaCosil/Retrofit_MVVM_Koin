@@ -20,7 +20,7 @@ class RecycleAdapter : RecyclerView.Adapter<RecycleAdapter.PostViewHolder>() {
     }
 
     private val differ = AsyncListDiffer(this, diffCallback)
-    var postsList: List<PostData>
+    var postsList: MutableList<PostData>
         get() = differ.currentList
         set(value) { differ.submitList(value) }
 
