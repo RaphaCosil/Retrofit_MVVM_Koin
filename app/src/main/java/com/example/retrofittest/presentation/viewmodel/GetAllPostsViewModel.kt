@@ -12,18 +12,13 @@ import kotlinx.coroutines.launch
 class GetAllPostsViewModel(
     private val postsUseCase: PostsUseCase
 ) : ViewModel() {
-
-    private val _posts = MutableLiveData<List<PostData>>()
-
-    val posts: LiveData<List<PostData>> = _posts
-
+     val posts = MutableLiveData<List<PostData>>()
     fun getPosts() {
         viewModelScope.launch {
             try {
                 val result = postsUseCase.getAllPosts()
-                _posts.value = result.body()
-                Log.d("PostsViewModel", "getPosts result: ${result.body() }")
-
+                posts.value = result.body()
+//                Log.d("PostsViewModel", "getPosts result: ${posts.value }")
             } catch (e: Exception) {
                 Log.e("PostsViewModel", "Error fetching todos | MESSAGE ${e.message} | CAUSE ${e.cause}")
             }

@@ -6,28 +6,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import com.example.retrofittest.R
+import com.example.retrofittest.databinding.FragmentGetAllPostsBinding
+import com.example.retrofittest.databinding.FragmentGetPostBinding
 import com.example.retrofittest.presentation.viewmodel.GetPostViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class GetPostFragment : Fragment() {
 
     companion object {
         fun newInstance() = GetPostFragment()
     }
-
-    private lateinit var viewModel: GetPostViewModel
+    private lateinit var binding: FragmentGetPostBinding
+    private val getPostViewModel: GetPostViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_get_post, container, false)
+        binding = FragmentGetPostBinding.inflate(inflater, container, false)
+        return binding.root // Retorna a View correta do binding
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(GetPostViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+    }
 }

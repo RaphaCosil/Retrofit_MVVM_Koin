@@ -26,7 +26,7 @@ val networkModule = module {
 }
 val dataModule = module {
     // Singleton de PostsRepository, injetando PostsService.
-    single<PostsRepository> {
+    factory<PostsRepository> {
         PostsRepositoryImpl(get())
     }
 }

@@ -41,6 +41,12 @@ class HomeActivity : AppCompatActivity() {
             replace<GetAllPostsFragment>(R.id.fragment)
         }
 
+        binding.btHome.setOnClickListener {
+            supportFragmentManager.commit {
+                setReorderingAllowed(true)
+                replace<GetAllPostsFragment>(R.id.fragment)
+            }
+        }
         binding.btAddPublication.setOnClickListener {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
@@ -59,6 +65,5 @@ class HomeActivity : AppCompatActivity() {
                 replace<UpdatePostFragment>(R.id.fragment)
             }
         }
-
     }
 }
