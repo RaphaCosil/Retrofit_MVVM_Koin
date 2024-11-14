@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Retrofit_MVVM"
+rootProject.name = "json-placeholder-app"
 include(":app")
  
