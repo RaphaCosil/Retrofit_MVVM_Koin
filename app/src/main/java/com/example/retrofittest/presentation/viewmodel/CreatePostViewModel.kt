@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.retrofittest.data.model.PostData
+import com.example.retrofittest.domain.entity.PostEntity
 import com.example.retrofittest.domain.usecase.PostsUseCase
 import kotlinx.coroutines.launch
 
@@ -19,7 +19,7 @@ class CreatePostViewModel(
 
     private val _isCreated = MutableLiveData<Boolean>()
     val isCreated: LiveData<Boolean> = _isCreated
-    fun createPost(post: PostData) {
+    fun createPost(post: PostEntity) {
         viewModelScope.launch {
             try {
                 val result = postsUseCase.createPost(post).let {

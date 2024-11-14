@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.retrofittest.data.model.PostData
+import com.example.retrofittest.domain.entity.PostEntity
 import com.example.retrofittest.domain.usecase.PostsUseCase
 import kotlinx.coroutines.launch
 
@@ -20,7 +20,7 @@ class UpdatePostViewModel(
 
     val isUpdatedPost: MutableLiveData<Boolean> = _isUpdatedPost
 
-    fun updatePost(id: String, post: PostData) {
+    fun updatePost(id: String, post: PostEntity) {
         _isUpdatedPost.value = false
         viewModelScope.launch {
             try {

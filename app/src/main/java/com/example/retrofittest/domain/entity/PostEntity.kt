@@ -1,6 +1,6 @@
-package com.example.retrofittest.data.model
+package com.example.retrofittest.domain.entity
 
-data class PostData(
+data class PostEntity(
     val userId: Int,
     val id: Int,
     val title: String,

@@ -8,10 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.retrofittest.R
-import com.example.retrofittest.data.model.PostData
 import com.example.retrofittest.databinding.FragmentGetAllPostsBinding
-import com.example.retrofittest.presentation.ui.view.RecycleAdapter
+import com.example.retrofittest.domain.entity.PostEntity
+import com.example.retrofittest.presentation.ui.view.ListPostsAdapter
 import com.example.retrofittest.presentation.ui.view.SpaceItemDecoration
 import com.example.retrofittest.presentation.viewmodel.GetAllPostsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -41,8 +40,8 @@ class GetAllPostsFragment : Fragment() {
             Toast.makeText(requireContext(), "Error fetching posts", Toast.LENGTH_SHORT).show()
         }
     }
-    private fun setupRecycler(posts: List<PostData>) = binding.postsRecycleView.apply {
-        val postsAdapter = RecycleAdapter()
+    private fun setupRecycler(posts: List<PostEntity>) = binding.postsRecycleView.apply {
+        val postsAdapter = ListPostsAdapter()
         postsAdapter.postsList = posts
         adapter = postsAdapter
         layoutManager = LinearLayoutManager(context)

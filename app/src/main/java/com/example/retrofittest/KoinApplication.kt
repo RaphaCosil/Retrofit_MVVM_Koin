@@ -15,7 +15,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 val networkModule = module {
-    // Instância singleton de PostsService configurada com Retrofit.
     single<PostsService> {
         Retrofit.Builder()
             .baseUrl("https://jsonplaceholder.typicode.com/")
@@ -25,21 +24,18 @@ val networkModule = module {
     }
 }
 val dataModule = module {
-    // Singleton de PostsRepository, injetando PostsService.
     factory<PostsRepository> {
         PostsRepositoryImpl(get())
     }
 }
 
 val domainModule = module {
-    // Singleton do caso de uso, injetando PostsRepository.
     factory {
         PostsUseCase(get())
     }
 }
 
 val presentationModule = module {
-    // ViewModels, injetando PostsUseCase.
     viewModel {
         GetAllPostsViewModel(get())
     }

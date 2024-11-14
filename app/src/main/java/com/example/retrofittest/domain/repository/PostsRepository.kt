@@ -1,14 +1,12 @@
 package com.example.retrofittest.domain.repository
 
-import com.example.retrofittest.data.model.PostData
-import retrofit2.Response
+import com.example.retrofittest.domain.entity.PostEntity
 
 interface PostsRepository {
-    suspend fun getAllPosts(): Response<List<PostData>>
-    suspend fun getPost(id: String): Response<PostData>
-    suspend fun createPost(post: PostData)
-    suspend fun updatePost(id: String, post: PostData)
-    suspend fun patchPost(id: String, post: PostData)
+    suspend fun getAllPosts(): List<PostEntity>
+    suspend fun getPost(id: String): PostEntity?
+    suspend fun createPost(post: PostEntity)
+    suspend fun updatePost(id: String, post: PostEntity)
+    suspend fun patchPost(id: String, post: PostEntity)
     suspend fun deletePost(id: String)
-
 }
