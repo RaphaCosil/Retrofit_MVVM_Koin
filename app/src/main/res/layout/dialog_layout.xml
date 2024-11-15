@@ -60,7 +60,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
-                android:backgroundTint="@color/principal_color1"
+                android:backgroundTint="@color/principal_color"
                 android:fontFamily="monospace"
                 android:text="@string/cancel"
                 android:textColor="@color/white" />
@@ -69,7 +69,7 @@
                 android:id="@+id/buttonSubmit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/principal_color1"
+                android:backgroundTint="@color/principal_color"
                 android:fontFamily="monospace"
                 android:text="@string/submit"
                 android:textColor="@color/white" />

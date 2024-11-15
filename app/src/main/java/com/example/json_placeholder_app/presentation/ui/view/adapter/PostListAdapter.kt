@@ -2,29 +2,16 @@ package com.example.json_placeholder_app.presentation.ui.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.json_placeholder_app.databinding.ItemPostBinding
 import com.example.json_placeholder_app.domain.entity.PostEntity
+import com.example.json_placeholder_app.presentation.ui.view.click_listener.OnUserInformationClickListener
 
-class PostListAdapter : RecyclerView.Adapter<PostListAdapter.PostViewHolder>() {
+class PostListAdapter(
+    private val postsList: List<PostEntity>,
+    private val onUserInformationClickListener: OnUserInformationClickListener
+) : RecyclerView.Adapter<PostListAdapter.PostViewHolder>() {
     inner class PostViewHolder(val binding: ItemPostBinding) : RecyclerView.ViewHolder(binding.root)
-
-    private val diffCallback = object : DiffUtil.ItemCallback<PostEntity>() {
-        override fun areItemsTheSame(oldItem: PostEntity, newItem: PostEntity): Boolean {
-            return oldItem.id == newItem.id
-        }
-        override fun areContentsTheSame(oldItem: PostEntity, newItem: PostEntity): Boolean {
-            return oldItem == newItem
-        }
-    }
-
-    private val differ = AsyncListDiffer(this, diffCallback)
-    var postsList: List<PostEntity>
-        get() = differ.currentList
-        set(value) { differ.submitList(value) }
-
     override fun getItemCount() = postsList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -37,8 +24,19 @@ class PostListAdapter : RecyclerView.Adapter<PostListAdapter.PostViewHolder>() {
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         holder.binding.apply {
             val posts = postsList[position]
+            textViewUsername.text = posts.userName
             textViewTitle.text = posts.title
             textViewBody.text = posts.body
+        }
+        holder.binding.userImg.setOnClickListener {
+            onUserInformationClickListener.onUserInformationClick(
+                postsList[position].userId
+            )
+        }
+        holder.binding.textViewUsername.setOnClickListener {
+            onUserInformationClickListener.onUserInformationClick(
+                postsList[position].userId
+            )
         }
     }
 }

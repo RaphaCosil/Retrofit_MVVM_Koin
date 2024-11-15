@@ -27,7 +27,7 @@ class ImageListAdapter(
 
     override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
         val imageUrl = imageUrlList[position].url
-        Glide.with(holder.itemView)
+        Glide.with(holder.binding.image.context)
             .load(imageUrl)
             .placeholder(R.drawable.photo_placeholder)
             .error(R.drawable.photo_placeholder)

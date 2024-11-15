@@ -8,35 +8,31 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.json_placeholder_app.databinding.FragmentGetAllPostsBinding
+import com.example.json_placeholder_app.databinding.FragmentHomeBinding
 import com.example.json_placeholder_app.domain.entity.FeedItemEntity
-import com.example.json_placeholder_app.domain.entity.PostEntity
 import com.example.json_placeholder_app.presentation.ui.view.adapter.FeedListAdapter
-import com.example.json_placeholder_app.presentation.ui.view.adapter.PostListAdapter
 import com.example.json_placeholder_app.presentation.ui.view.click_listener.OnUserInformationClickListener
 import com.example.json_placeholder_app.presentation.ui.view.style.SpaceItemDecoration
-import com.example.json_placeholder_app.presentation.viewmodel.GetFeedListViewModel
-import com.google.gson.Gson
-import com.google.gson.GsonBuilder
+import com.example.json_placeholder_app.presentation.viewmodel.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class GetFeedListFragment : Fragment(), OnUserInformationClickListener {
-    private lateinit var binding: FragmentGetAllPostsBinding
-    private val getFeedListViewModel: GetFeedListViewModel by viewModel()
+class HomeFragment : Fragment(), OnUserInformationClickListener {
+    private lateinit var binding: FragmentHomeBinding
+    private val homeViewModel: HomeViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentGetAllPostsBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         try {
-            getFeedListViewModel.getFeedList()
-            getFeedListViewModel.feedItemList.observe(viewLifecycleOwner) {
+            homeViewModel.getFeedList()
+            homeViewModel.feedItemList.observe(viewLifecycleOwner) {
                 Log.d("PostsViewModel", "getPosts result: $it")
                 setupRecycler(it)
             }
@@ -46,7 +42,11 @@ class GetFeedListFragment : Fragment(), OnUserInformationClickListener {
         }
     }
     private fun setupRecycler(feedList: List<FeedItemEntity>) = binding.postsRecycleView.apply {
-        val feedListAdapter = FeedListAdapter(feedList, this@GetFeedListFragment)
+        val feedListAdapter = FeedListAdapter(
+            requireActivity(),
+            feedList,
+            this@HomeFragment
+        )
         adapter = feedListAdapter
         layoutManager = LinearLayoutManager(context)
         addItemDecoration(SpaceItemDecoration(48))

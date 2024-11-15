@@ -8,10 +8,10 @@ import androidx.fragment.app.replace
 import com.example.json_placeholder_app.R
 import com.example.json_placeholder_app.databinding.ActivityMainBinding
 import com.example.json_placeholder_app.presentation.ui.activity.fragment.CreatePostFragment
-import com.example.json_placeholder_app.presentation.ui.activity.fragment.GetFeedListFragment
+import com.example.json_placeholder_app.presentation.ui.activity.fragment.HomeFragment
 
 
-class HomeActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,13 +21,13 @@ class HomeActivity : AppCompatActivity() {
 
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            replace<GetFeedListFragment>(R.id.fragment)
+            replace<HomeFragment>(R.id.fragment)
         }
 
         binding.btHome.setOnClickListener {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<GetFeedListFragment>(R.id.fragment)
+                replace<HomeFragment>(R.id.fragment)
             }
         }
         binding.btAddPublication.setOnClickListener {

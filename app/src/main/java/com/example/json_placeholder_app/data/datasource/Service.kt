@@ -29,7 +29,7 @@ interface Service {
 
     @GET("albums")
     suspend fun getAlbums(
-        @Query("_limit") limit: Int = 20
+        @Query("_limit") limit: Int = 8
     ): Response<List<AlbumDAO>>
 
     @POST("albums/")
@@ -43,7 +43,7 @@ interface Service {
     @GET("photos")
     suspend fun getPhotosByAlbumId(
         @Query("albumId") albumId: String,
-        @Query("_limit") limit: Int = 5
+        @Query("_limit") limit: Int = 2
     ): Response<List<PhotoDAO>>
 
     @GET("users/")

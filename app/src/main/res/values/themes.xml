@@ -1,8 +1,7 @@
 <resources>
-    <!-- Base application theme. -->
     <style name="Base.Theme.RetrofitTest" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="backgroundColor">@color/black</item>
-        <item name="colorPrimary">@color/principal_color1</item>
+        <item name="colorPrimary">@color/principal_color</item>
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="Theme.RetrofitTest" parent="Base.Theme.RetrofitTest" />

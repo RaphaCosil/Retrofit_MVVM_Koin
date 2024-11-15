@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/black"
-    tools:context=".presentation.ui.activity.HomeActivity">
+    tools:context=".presentation.ui.activity.MainActivity">
 
     <LinearLayout
         android:id="@+id/footer"

@@ -16,7 +16,7 @@
         android:theme="@style/Theme.RetrofitTest"
         tools:targetApi="s">
         <activity
-            android:name=".presentation.ui.activity.HomeActivity"
+            android:name=".presentation.ui.activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.ui.activity.SplashActivity"

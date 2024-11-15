@@ -3,6 +3,7 @@ package com.example.json_placeholder_app.presentation.ui.view.adapter
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.json_placeholder_app.R
 import com.example.json_placeholder_app.databinding.ItemAlbumBinding
@@ -13,6 +14,7 @@ import com.example.json_placeholder_app.domain.entity.PostEntity
 import com.example.json_placeholder_app.presentation.ui.view.click_listener.OnUserInformationClickListener
 
 class FeedListAdapter(
+    private val context: Context,
     private val itemList: List<FeedItemEntity>,
     private val onUserInformationClickListener: OnUserInformationClickListener,
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -86,7 +88,13 @@ class FeedListAdapter(
                 textViewUsername.text = albumEntity.userName
                 textViewTitle.text = albumEntity.title
                 userImage.setImageResource(R.drawable.photo_user)
-                recyclerViewPhotos.adapter = ImageListAdapter(albumEntity.photos)
+                val adapter = ImageListAdapter(albumEntity.photos)
+                recyclerViewPhotos.layoutManager = LinearLayoutManager(
+                    context,
+                    LinearLayoutManager.HORIZONTAL,
+                    false
+                )
+                recyclerViewPhotos.adapter = adapter
                 userImage.setOnClickListener {
                     onUserInformationClickListener.onUserInformationClick(albumEntity.userId)
                 }

@@ -3,11 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.ui.activity.fragment.GetFeedListFragment">
+    tools:context=".presentation.ui.activity.fragment.FindUsersFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/postsRecycleView"
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:text="Hello" />
 
 </FrameLayout>

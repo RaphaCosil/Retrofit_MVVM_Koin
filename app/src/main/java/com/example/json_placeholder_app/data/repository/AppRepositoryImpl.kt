@@ -1,5 +1,6 @@
 package com.example.json_placeholder_app.data.repository
 
+import android.util.Log
 import com.example.json_placeholder_app.data.datasource.Service
 import com.example.json_placeholder_app.data.model.toData
 import com.example.json_placeholder_app.data.model.toEntity
@@ -19,6 +20,7 @@ class AppRepositoryImpl(private val service: Service): AppRepository {
         feedList.addAll(albums)
         feedList.addAll(posts)
         feedList.shuffle(Random(System.currentTimeMillis()))
+        Log.d("AppRepositoryImpl", feedList.toString())
         return feedList
     }
 
@@ -27,6 +29,7 @@ class AppRepositoryImpl(private val service: Service): AppRepository {
         for (post in posts) {
             post.userName = getUserById(post.userId.toString()).name
         }
+        Log.d("AppRepositoryImpl", posts.toString())
         return posts
     }
 

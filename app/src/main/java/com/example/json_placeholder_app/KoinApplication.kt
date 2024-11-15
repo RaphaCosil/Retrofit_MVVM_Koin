@@ -10,19 +10,12 @@ import com.example.json_placeholder_app.domain.usecase.GetFeedListUseCase
 import com.example.json_placeholder_app.domain.usecase.GetPostCommentsUseCase
 import com.example.json_placeholder_app.domain.usecase.GetPostsByUserIdUseCase
 import com.example.json_placeholder_app.presentation.viewmodel.CreatePostViewModel
-import com.example.json_placeholder_app.presentation.viewmodel.GetFeedListViewModel
-import com.google.gson.Gson
+import com.example.json_placeholder_app.presentation.viewmodel.HomeViewModel
 
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
-val utilsModule = module {
-    factory {
-        Gson()
-    }
-}
 
 val networkModule = module {
     single<Service> {
@@ -63,7 +56,7 @@ val domainModule = module {
 
 val presentationModule = module {
     viewModel {
-        GetFeedListViewModel(get(), get())
+        HomeViewModel(get())
     }
 
     viewModel {
