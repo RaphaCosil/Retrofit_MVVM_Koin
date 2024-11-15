@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.json_placeholder_app.databinding.FragmentGetAllPostsBinding
 import com.example.json_placeholder_app.domain.entity.PostEntity
-import com.example.json_placeholder_app.presentation.ui.view.ListPostsAdapter
-import com.example.json_placeholder_app.presentation.ui.view.SpaceItemDecoration
+import com.example.json_placeholder_app.presentation.ui.view.PostListAdapter
+import com.example.json_placeholder_app.presentation.ui.style.SpaceItemDecoration
 import com.example.json_placeholder_app.presentation.viewmodel.GetAllPostsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -41,7 +41,7 @@ class GetAllPostsFragment : Fragment() {
         }
     }
     private fun setupRecycler(posts: List<PostEntity>) = binding.postsRecycleView.apply {
-        val postsAdapter = ListPostsAdapter()
+        val postsAdapter = PostListAdapter()
         postsAdapter.postsList = posts
         adapter = postsAdapter
         layoutManager = LinearLayoutManager(context)

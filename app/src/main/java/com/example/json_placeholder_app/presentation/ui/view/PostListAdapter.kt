@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.example.json_placeholder_app.databinding.ItemRecycleBinding
+import com.example.json_placeholder_app.databinding.ItemPostBinding
 import com.example.json_placeholder_app.domain.entity.PostEntity
 
-class ListPostsAdapter : RecyclerView.Adapter<ListPostsAdapter.PostViewHolder>() {
-    inner class PostViewHolder(val binding: ItemRecycleBinding) : RecyclerView.ViewHolder(binding.root)
+class PostListAdapter : RecyclerView.Adapter<PostListAdapter.PostViewHolder>() {
+    inner class PostViewHolder(val binding: ItemPostBinding) : RecyclerView.ViewHolder(binding.root)
 
     private val diffCallback = object : DiffUtil.ItemCallback<PostEntity>() {
         override fun areItemsTheSame(oldItem: PostEntity, newItem: PostEntity): Boolean {
@@ -28,7 +28,7 @@ class ListPostsAdapter : RecyclerView.Adapter<ListPostsAdapter.PostViewHolder>()
     override fun getItemCount() = postsList.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        return PostViewHolder(ItemRecycleBinding.inflate(
+        return PostViewHolder(ItemPostBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
