@@ -1,4 +1,4 @@
-package com.example.json_placeholder_app.presentation.ui.view
+package com.example.json_placeholder_app.presentation.ui.view.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

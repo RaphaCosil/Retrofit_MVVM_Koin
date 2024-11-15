@@ -1,4 +1,4 @@
-package com.example.json_placeholder_app.presentation.ui.style
+package com.example.json_placeholder_app.presentation.ui.view.style
 
 import android.graphics.Rect
 import android.view.View

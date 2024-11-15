@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.json_placeholder_app.databinding.FragmentGetAllPostsBinding
 import com.example.json_placeholder_app.domain.entity.PostEntity
-import com.example.json_placeholder_app.presentation.ui.view.PostListAdapter
-import com.example.json_placeholder_app.presentation.ui.style.SpaceItemDecoration
+import com.example.json_placeholder_app.presentation.ui.view.adapter.PostListAdapter
+import com.example.json_placeholder_app.presentation.ui.view.style.SpaceItemDecoration
 import com.example.json_placeholder_app.presentation.viewmodel.GetAllPostsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
