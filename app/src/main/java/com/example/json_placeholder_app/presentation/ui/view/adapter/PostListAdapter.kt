@@ -28,7 +28,7 @@ class PostListAdapter(
             textViewTitle.text = posts.title
             textViewBody.text = posts.body
         }
-        holder.binding.userImg.setOnClickListener {
+        holder.binding.imageViewUser.setOnClickListener {
             onUserInformationClickListener.onUserInformationClick(
                 postsList[position].userId
             )
