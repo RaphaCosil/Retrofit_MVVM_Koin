@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="principal_color">#FF2667</color>
+    <color name="secondary_color">#FF9D9D</color>
     <color name="black">#171717</color>
     <color name="dark_grey">#202020</color>
     <color name="grey">#212121</color>
     <color name="light_grey">#2F2F2F</color>
     <color name="white">#ECECEC</color>
-    <color name="medium_pink">#FF9D9D</color>
-    <color name="pink">#FF2667</color>
 </resources>

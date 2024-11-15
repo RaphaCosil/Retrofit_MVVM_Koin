@@ -16,39 +16,39 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/background_footer">
+        android:background="@drawable/style_background">
 
         <ImageButton
             android:id="@+id/bt_home"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:background="@drawable/background_footer"
-            app:srcCompat="@drawable/iconhome" />
+            android:background="@drawable/style_background"
+            app:srcCompat="@drawable/icon_home" />
 
         <ImageButton
             android:id="@+id/bt_add_publication"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:background="@drawable/background_footer"
-            app:srcCompat="@drawable/iconplus" />
+            android:background="@drawable/style_background"
+            app:srcCompat="@drawable/icon_search" />
 
         <ImageButton
             android:id="@+id/bt_edit"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:background="@drawable/background_footer"
-            app:srcCompat="@drawable/iconsearch" />
+            android:background="@drawable/style_background"
+            app:srcCompat="@drawable/icon_create" />
 
         <ImageButton
             android:id="@+id/bt_search"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
             android:layout_weight="1"
-            android:background="@drawable/background_footer"
-            app:srcCompat="@drawable/iconedit" />
+            android:background="@drawable/style_background"
+            app:srcCompat="@drawable/icon_user" />
 
     </LinearLayout>
 
