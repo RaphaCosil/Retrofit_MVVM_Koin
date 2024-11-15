@@ -2,9 +2,9 @@
     <!-- Base application theme -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/principal_color</item>
-        <item name="colorPrimaryDark">@color/principal_color</item>
-        <item name="colorAccent">@color/principal_color</item>
+        <item name="colorPrimary">@color/principal_color1</item>
+        <item name="colorPrimaryDark">@color/principal_color1</item>
+        <item name="colorAccent">@color/principal_color1</item>
     </style>
 
     <!-- Custom Dialog Style -->

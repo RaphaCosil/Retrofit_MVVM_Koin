@@ -1,9 +1,14 @@
 package com.example.json_placeholder_app
 
 import com.example.json_placeholder_app.data.datasource.Service
-import com.example.json_placeholder_app.data.repository.PostsRepositoryImpl
-import com.example.json_placeholder_app.domain.repository.PostsRepository
-import com.example.json_placeholder_app.domain.usecase.PostsUseCase
+import com.example.json_placeholder_app.data.repository.AppRepositoryImpl
+import com.example.json_placeholder_app.domain.repository.AppRepository
+import com.example.json_placeholder_app.domain.usecase.CreateAlbumUseCase
+import com.example.json_placeholder_app.domain.usecase.CreatePostUseCase
+import com.example.json_placeholder_app.domain.usecase.GetAlbumsByUserIdUseCase
+import com.example.json_placeholder_app.domain.usecase.GetFeedListUseCase
+import com.example.json_placeholder_app.domain.usecase.GetPostCommentsUseCase
+import com.example.json_placeholder_app.domain.usecase.GetPostsByUserIdUseCase
 import com.example.json_placeholder_app.presentation.viewmodel.CreatePostViewModel
 import com.example.json_placeholder_app.presentation.viewmodel.GetAllPostsViewModel
 
@@ -22,14 +27,29 @@ val networkModule = module {
     }
 }
 val dataModule = module {
-    factory<PostsRepository> {
-        PostsRepositoryImpl(get())
+    factory<AppRepository> {
+        AppRepositoryImpl(get())
     }
 }
 
 val domainModule = module {
     factory {
-        PostsUseCase(get())
+        GetFeedListUseCase(get())
+    }
+    factory {
+        GetPostCommentsUseCase(get())
+    }
+    factory {
+        GetPostsByUserIdUseCase(get())
+    }
+    factory {
+        CreatePostUseCase(get())
+    }
+    factory {
+        GetAlbumsByUserIdUseCase(get())
+    }
+    factory {
+        CreateAlbumUseCase(get())
     }
 }
 

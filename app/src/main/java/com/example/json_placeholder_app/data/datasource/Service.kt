@@ -12,10 +12,8 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface Service {
-    @GET("users/")
-    suspend fun getUsers(): Response<List<UserDAO>>
 
-    @GET("posts/")
+    @GET("posts?_limit=20")
     suspend fun getAllPosts(): Response<List<PostDAO>>
 
     @GET("posts?userId={id}")
@@ -27,12 +25,18 @@ interface Service {
     @GET("posts/{id}/comments/")
     suspend fun getPostComments(@Path("id") id: String): Response<List<CommentDAO>>
 
-    @GET("albums/")
+    @GET("albums?_limit=20")
     suspend fun getAlbums(): Response<List<AlbumDAO>>
+
+    @POST("albums/")
+    suspend fun createAlbum(@Body album: AlbumDAO)
 
     @GET("albums?userId={id}")
     suspend fun getAlbumsByUserId(@Path("id") id: String): Response<List<AlbumDAO>>
 
     @GET("photos?albumId={id}&_limit=5")
     suspend fun getPhotosByAlbumId(@Path("id") id: String): Response<List<PhotoDAO>>
+
+    @GET("users/")
+    suspend fun getUsers(): Response<List<UserDAO>>
 }

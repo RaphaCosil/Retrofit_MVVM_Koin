@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.json_placeholder_app.domain.entity.PostEntity
-import com.example.json_placeholder_app.domain.usecase.PostsUseCase
 import kotlinx.coroutines.launch
 
 class GetAllPostsViewModel(

@@ -14,7 +14,7 @@
         android:padding="20dp">
 
         <TextView
-            android:id="@+id/textViewTitle"
+            android:id="@+id/textViewUsername"
             android:layout_width="match_parent"
             android:layout_height="28dp"
             android:fontFamily="monospace"
@@ -23,7 +23,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userImg" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textViewBody"
@@ -37,33 +37,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTitle"
+            app:layout_constraintTop_toBottomOf="@+id/textViewUsername"
             app:layout_constraintVertical_bias="0.0" />
 
-        <ImageView
-            android:id="@+id/userImg"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/textViewUsername"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/textViewTitle"
-            app:layout_constraintStart_toEndOf="@+id/userImg"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/imageButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@+id/textViewBody"
-            app:layout_constraintTop_toBottomOf="@+id/textViewBody"
-            app:srcCompat="@drawable/icon_comment"
-            android:background="@drawable/style_background_item"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>
