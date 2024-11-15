@@ -9,7 +9,7 @@ class Application : Application() {
         super.onCreate()
         startKoin {
             androidContext(this@Application)
-            modules(networkModule, dataModule, domainModule, presentationModule)
+            modules(utilsModule, networkModule, dataModule, domainModule, presentationModule)
         }
     }
 }

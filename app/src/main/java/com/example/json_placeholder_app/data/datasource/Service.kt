@@ -1,42 +1,56 @@
 package com.example.json_placeholder_app.data.datasource
 
-import com.example.json_placeholder_app.data.model.AlbumDAO
-import com.example.json_placeholder_app.data.model.CommentDAO
-import com.example.json_placeholder_app.data.model.PhotoDAO
-import com.example.json_placeholder_app.data.model.PostDAO
-import com.example.json_placeholder_app.data.model.UserDAO
+import com.example.json_placeholder_app.data.model.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface Service {
+    @GET("posts")
+    suspend fun getAllPosts(
+        @Query("_limit") limit: Int = 20
+    ): Response<List<PostDAO>>
 
-    @GET("posts?_limit=20")
-    suspend fun getAllPosts(): Response<List<PostDAO>>
-
-    @GET("posts?userId={id}")
-    suspend fun getPostsByUserId(@Path("id") id: String): Response<List<PostDAO>>
+    @GET("posts")
+    suspend fun getPostsByUserId(
+        @Query("userId") userId: String
+    ): Response<List<PostDAO>>
 
     @POST("posts/")
     suspend fun createPost(@Body post: PostDAO)
 
     @GET("posts/{id}/comments/")
-    suspend fun getPostComments(@Path("id") id: String): Response<List<CommentDAO>>
+    suspend fun getPostComments(
+        @Path("id") id: String
+    ): Response<List<CommentDAO>>
 
-    @GET("albums?_limit=20")
-    suspend fun getAlbums(): Response<List<AlbumDAO>>
+    @GET("albums")
+    suspend fun getAlbums(
+        @Query("_limit") limit: Int = 20
+    ): Response<List<AlbumDAO>>
 
     @POST("albums/")
     suspend fun createAlbum(@Body album: AlbumDAO)
 
-    @GET("albums?userId={id}")
-    suspend fun getAlbumsByUserId(@Path("id") id: String): Response<List<AlbumDAO>>
+    @GET("albums")
+    suspend fun getAlbumsByUserId(
+        @Query("userId") userId: String
+    ): Response<List<AlbumDAO>>
 
-    @GET("photos?albumId={id}&_limit=5")
-    suspend fun getPhotosByAlbumId(@Path("id") id: String): Response<List<PhotoDAO>>
+    @GET("photos")
+    suspend fun getPhotosByAlbumId(
+        @Query("albumId") albumId: String,
+        @Query("_limit") limit: Int = 5
+    ): Response<List<PhotoDAO>>
 
     @GET("users/")
     suspend fun getUsers(): Response<List<UserDAO>>
+
+    @GET("users/{id}")
+    suspend fun getUserById(
+        @Path("id") id: String
+    ): Response<UserDAO>
 }

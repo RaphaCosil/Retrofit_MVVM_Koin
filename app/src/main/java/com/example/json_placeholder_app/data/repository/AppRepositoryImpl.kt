@@ -5,6 +5,7 @@ import com.example.json_placeholder_app.data.model.toData
 import com.example.json_placeholder_app.data.model.toEntity
 import com.example.json_placeholder_app.domain.entity.AlbumEntity
 import com.example.json_placeholder_app.domain.entity.CommentEntity
+import com.example.json_placeholder_app.domain.entity.PhotoEntity
 import com.example.json_placeholder_app.domain.entity.PostEntity
 import com.example.json_placeholder_app.domain.entity.UserEntity
 import com.example.json_placeholder_app.domain.repository.AppRepository
@@ -22,7 +23,11 @@ class AppRepositoryImpl(private val service: Service): AppRepository {
     }
 
     override suspend fun getPostsByUserId(id: String): List<PostEntity> {
-        return service.getPostsByUserId(id).body()?.map { it.toEntity() } ?: emptyList()
+        val posts = service.getPostsByUserId(id).body()?.map { it.toEntity() } ?: emptyList()
+        for (post in posts) {
+            post.userName = getUserById(post.userId.toString()).name
+        }
+        return posts
     }
 
     override suspend fun getPostComments(id: String): List<CommentEntity> {
@@ -36,9 +41,10 @@ class AppRepositoryImpl(private val service: Service): AppRepository {
     }
 
     override suspend fun getAlbumsByUserId(id: String): List<AlbumEntity> {
-        val albums = service.getAlbums().body()?.map { it.toEntity() } ?: emptyList()
+        val albums = service.getAlbumsByUserId(id).body()?.map { it.toEntity() } ?: emptyList()
         for (album in albums) {
-            album.photos = service.getPhotosByAlbumId(album.id.toString()).body()?.map { it.toEntity() } ?: emptyList()
+            album.userName = getUserById(album.userId.toString()).name
+            album.photos = getPhotosByAlbumId(album.id.toString())
         }
         return albums
     }
@@ -56,12 +62,25 @@ class AppRepositoryImpl(private val service: Service): AppRepository {
     private suspend fun getAlbums(): List<AlbumEntity> {
         val albums = service.getAlbums().body()?.map { it.toEntity() } ?: emptyList()
         for (album in albums) {
-            album.photos = service.getPhotosByAlbumId(album.id.toString()).body()?.map { it.toEntity() } ?: emptyList()
+            album.userName = getUserById(album.userId.toString()).name
+            album.photos = getPhotosByAlbumId(album.id.toString())
         }
         return albums
     }
 
     private suspend fun getAllPosts(): List<PostEntity> {
-        return service.getAllPosts().body()?.map { it.toEntity() } ?: emptyList()
+        val posts = service.getAllPosts().body()?.map { it.toEntity() } ?: emptyList()
+        for (post in posts) {
+            post.userName = getUserById(post.userId.toString()).name
+        }
+        return posts
+    }
+
+    private suspend fun getUserById(id: String): UserEntity {
+        return service.getUserById(id).body()?.toEntity() ?: UserEntity(0, "", "", "")
+    }
+
+    private suspend fun getPhotosByAlbumId(id: String): List<PhotoEntity> {
+        return service.getPhotosByAlbumId(id).body()?.map { it.toEntity() } ?: emptyList()
     }
 }

@@ -8,7 +8,7 @@ import androidx.fragment.app.replace
 import com.example.json_placeholder_app.R
 import com.example.json_placeholder_app.databinding.ActivityMainBinding
 import com.example.json_placeholder_app.presentation.ui.activity.fragment.CreatePostFragment
-import com.example.json_placeholder_app.presentation.ui.activity.fragment.GetAllPostsFragment
+import com.example.json_placeholder_app.presentation.ui.activity.fragment.GetFeedListFragment
 
 
 class HomeActivity : AppCompatActivity() {
@@ -21,13 +21,13 @@ class HomeActivity : AppCompatActivity() {
 
         supportFragmentManager.commit {
             setReorderingAllowed(true)
-            replace<GetAllPostsFragment>(R.id.fragment)
+            replace<GetFeedListFragment>(R.id.fragment)
         }
 
         binding.btHome.setOnClickListener {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                replace<GetAllPostsFragment>(R.id.fragment)
+                replace<GetFeedListFragment>(R.id.fragment)
             }
         }
         binding.btAddPublication.setOnClickListener {

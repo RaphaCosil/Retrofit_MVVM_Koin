@@ -23,6 +23,7 @@ fun PostDAO.toEntity(): PostEntity {
         userId = userId,
         id = id,
         title = title,
-        body = body
+        body = body,
+        userName = ""
     )
 }

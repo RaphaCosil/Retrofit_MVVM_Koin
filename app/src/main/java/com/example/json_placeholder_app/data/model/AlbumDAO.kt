@@ -21,6 +21,7 @@ fun AlbumDAO.toEntity(): AlbumEntity {
         userId = userId,
         id = id,
         title = title,
-        photos = emptyList()
+        photos = emptyList(),
+        userName = ""
     )
 }

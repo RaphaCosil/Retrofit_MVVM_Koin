@@ -39,9 +39,8 @@ android {
 }
 
 dependencies {
-
     // Kotlin
-    implementation("androidx.core:core-ktx:1.15.0")
+    implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
     implementation("androidx.constraintlayout:constraintlayout:2.2.0")
@@ -73,4 +72,11 @@ dependencies {
 
     // Work Manager
     implementation ("io.insert-koin:koin-androidx-workmanager:3.6.0-wasm-alpha2")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.12.0")
+
+    // Gson
+    implementation("com.google.code.gson:gson:2.10.1")
 }

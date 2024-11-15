@@ -6,10 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.json_placeholder_app.domain.entity.PostEntity
+import com.example.json_placeholder_app.domain.usecase.CreatePostUseCase
 import kotlinx.coroutines.launch
 
 class CreatePostViewModel(
-    private val postsUseCase: PostsUseCase
+    private val createPostUseCase: CreatePostUseCase
 ): ViewModel() {
 
     private val _errorMessage = MutableLiveData<String>()
@@ -21,7 +22,7 @@ class CreatePostViewModel(
     fun createPost(post: PostEntity) {
         viewModelScope.launch {
             try {
-                val result = postsUseCase.createPost(post).let {
+                val result = createPostUseCase.invoke(post).let {
                     _isCreated.value = true
                 }
                 Log.d("PostsViewModel", "createPost result: $result")

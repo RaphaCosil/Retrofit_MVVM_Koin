@@ -9,15 +9,20 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.json_placeholder_app.databinding.FragmentGetAllPostsBinding
+import com.example.json_placeholder_app.domain.entity.FeedItemEntity
 import com.example.json_placeholder_app.domain.entity.PostEntity
+import com.example.json_placeholder_app.presentation.ui.view.adapter.FeedListAdapter
 import com.example.json_placeholder_app.presentation.ui.view.adapter.PostListAdapter
+import com.example.json_placeholder_app.presentation.ui.view.click_listener.OnUserInformationClickListener
 import com.example.json_placeholder_app.presentation.ui.view.style.SpaceItemDecoration
-import com.example.json_placeholder_app.presentation.viewmodel.GetAllPostsViewModel
+import com.example.json_placeholder_app.presentation.viewmodel.GetFeedListViewModel
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class GetAllPostsFragment : Fragment() {
+class GetFeedListFragment : Fragment(), OnUserInformationClickListener {
     private lateinit var binding: FragmentGetAllPostsBinding
-    private val getAllPostsViewModel: GetAllPostsViewModel by viewModel()
+    private val getFeedListViewModel: GetFeedListViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,8 +35,8 @@ class GetAllPostsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         try {
-            getAllPostsViewModel.getPosts()
-            getAllPostsViewModel.posts.observe(viewLifecycleOwner) {
+            getFeedListViewModel.getFeedList()
+            getFeedListViewModel.feedItemList.observe(viewLifecycleOwner) {
                 Log.d("PostsViewModel", "getPosts result: $it")
                 setupRecycler(it)
             }
@@ -40,11 +45,14 @@ class GetAllPostsFragment : Fragment() {
             Toast.makeText(requireContext(), "Error fetching posts", Toast.LENGTH_SHORT).show()
         }
     }
-    private fun setupRecycler(posts: List<PostEntity>) = binding.postsRecycleView.apply {
-        val postsAdapter = PostListAdapter()
-        postsAdapter.postsList = posts
-        adapter = postsAdapter
+    private fun setupRecycler(feedList: List<FeedItemEntity>) = binding.postsRecycleView.apply {
+        val feedListAdapter = FeedListAdapter(feedList, this@GetFeedListFragment)
+        adapter = feedListAdapter
         layoutManager = LinearLayoutManager(context)
         addItemDecoration(SpaceItemDecoration(48))
+    }
+
+    override fun onUserInformationClick(userId: Int) {
+        TODO("Not yet implemented")
     }
 }
