@@ -24,23 +24,7 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:background="@drawable/style_background"
-            app:srcCompat="@drawable/icon_home" />
-
-        <ImageButton
-            android:id="@+id/bt_add_publication"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="@drawable/style_background"
-            app:srcCompat="@drawable/icon_search" />
-
-        <ImageButton
-            android:id="@+id/bt_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"
-            android:layout_weight="1"
-            android:background="@drawable/style_background"
-            app:srcCompat="@drawable/icon_create" />
+            app:srcCompat="@drawable/icon_home_line" />
 
         <ImageButton
             android:id="@+id/bt_search"
@@ -48,7 +32,23 @@
             android:layout_height="48dp"
             android:layout_weight="1"
             android:background="@drawable/style_background"
-            app:srcCompat="@drawable/icon_user" />
+            app:srcCompat="@drawable/icon_search_line" />
+
+        <ImageButton
+            android:id="@+id/bt_create"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/style_background"
+            app:srcCompat="@drawable/icon_create_line" />
+
+        <ImageButton
+            android:id="@+id/bt_user_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:background="@drawable/style_background"
+            app:srcCompat="@drawable/icon_user_line" />
 
     </LinearLayout>
 

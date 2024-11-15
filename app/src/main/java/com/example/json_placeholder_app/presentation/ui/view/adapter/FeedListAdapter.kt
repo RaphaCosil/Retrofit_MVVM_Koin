@@ -68,9 +68,8 @@ class FeedListAdapter(
                 textViewUsername.text = postEntity.userName
                 textViewTitle.text = postEntity.title
                 textViewBody.text = postEntity.body
-                userImg.setImageResource(R.drawable.photo_user)
-
-                userImg.setOnClickListener {
+                imageViewUser.setImageResource(R.drawable.photo_user)
+                imageViewUser.setOnClickListener {
                     onUserInformationClickListener.onUserInformationClick(postEntity.userId)
                 }
                 textViewUsername.setOnClickListener {
@@ -87,7 +86,7 @@ class FeedListAdapter(
             binding.apply {
                 textViewUsername.text = albumEntity.userName
                 textViewTitle.text = albumEntity.title
-                userImage.setImageResource(R.drawable.photo_user)
+                imageViewUser.setImageResource(R.drawable.photo_user)
                 val adapter = ImageListAdapter(albumEntity.photos)
                 recyclerViewPhotos.layoutManager = LinearLayoutManager(
                     context,
@@ -95,7 +94,7 @@ class FeedListAdapter(
                     false
                 )
                 recyclerViewPhotos.adapter = adapter
-                userImage.setOnClickListener {
+                imageViewUser.setOnClickListener {
                     onUserInformationClickListener.onUserInformationClick(albumEntity.userId)
                 }
                 textViewUsername.setOnClickListener {

@@ -40,7 +40,7 @@ class AlbumListAdapter(
             )
             recyclerViewPhotos.setHasFixedSize(true)
         }
-        holder.binding.userImage.setOnClickListener {
+        holder.binding.imageViewUser.setOnClickListener {
             onUserInformationClickListener.onUserInformationClick(
                 albumList[position].userId
             )
